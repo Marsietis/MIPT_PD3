@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MIPT_PD3</string>
+    <string name="mc">MC</string>
+    <string name="mr">MR</string>
+    <string name="ms">MS</string>
+    <string name="m_plus">M+</string>
+    <string name="m_minus">M-</string>
 </resources>

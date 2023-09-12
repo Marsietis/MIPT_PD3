@@ -4,18 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.text.isDigitsOnly
 
 class MainActivity : AppCompatActivity() {
-
-    private var currentExpression = ""
-    private lateinit var calculatorDisplay: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        calculatorDisplay = findViewById(R.id.display)
+        val calculatorDisplay = findViewById<TextView>(R.id.display)
 
         val buttonIds = listOf(
             R.id._0,
@@ -42,24 +38,10 @@ class MainActivity : AppCompatActivity() {
         for (buttonId in buttonIds) {
             val button = findViewById<Button>(buttonId)
             button.setOnClickListener {
-                handleButtonClick(button)
+                Display.handleButtonClick(button, calculatorDisplay)
             }
         }
     }
 
-    private fun handleButtonClick(button: Button) {
-        val buttonText = button.text.toString()
 
-        if (buttonText.isDigitsOnly()){
-            currentExpression += buttonText
-        }
-        else if (buttonText == "+" || buttonText == "-" || buttonText == "*" || buttonText == "/"){
-            currentExpression += " $buttonText "
-        }
-        updateDisplay()
-    }
-
-    private fun updateDisplay(){
-        calculatorDisplay.text = currentExpression
-    }
 }

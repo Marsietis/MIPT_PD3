@@ -1,7 +1,6 @@
 package com.example.mipt_pd3
 
 import android.widget.Button
-import android.widget.TextView
 
 object Display {
 

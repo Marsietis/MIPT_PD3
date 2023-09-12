@@ -7,7 +7,7 @@ object Display {
 
     private var currentExpression = "0"
 
-    fun handleButtonClick(button: Button, calculatorDisplay: TextView): String {
+    fun handleButtonClick(button: Button): String {
         val buttonText = button.text.toString()
 
         currentExpression = when (buttonText) {

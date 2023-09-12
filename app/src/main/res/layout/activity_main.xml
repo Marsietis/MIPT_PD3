@@ -14,11 +14,14 @@
         tools:layout_editor_absoluteY="-16dp">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/display"
             android:layout_width="match_parent"
             android:layout_height="93dp"
             android:text="@string/_0"
-            />
+            android:textAlignment="textEnd"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="34sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,6 +86,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/deleteSymbol"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -93,6 +97,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/clearEntry"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -103,6 +108,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/clear"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -113,6 +119,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/changeSymbol"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -123,6 +130,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/squareRoot"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -140,6 +148,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/_7"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -150,6 +159,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/_8"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -160,6 +170,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/_9"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -170,6 +181,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/divide"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -197,6 +209,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/_4"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -207,6 +220,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/_5"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -217,6 +231,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/_6"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -227,6 +242,7 @@
                 app:cornerRadius="5dp" />
 
             <Button
+                android:id="@+id/multiply"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="0dp"
                 android:layout_height="72dp"
@@ -262,9 +278,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <!-- Add your buttons in the first row -->
-                    <!-- Button 1 -->
                     <Button
+                        android:id="@+id/_1"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -274,8 +289,8 @@
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
-                    <!-- Button 2 -->
                     <Button
+                        android:id="@+id/_2"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -285,8 +300,8 @@
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
-                    <!-- Button 3 -->
                     <Button
+                        android:id="@+id/_3"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -296,8 +311,8 @@
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
-                    <!-- Button 4 -->
                     <Button
+                        android:id="@+id/minus"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -314,9 +329,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <!-- Add your buttons in the second row -->
-                    <!-- Button 5 -->
                     <Button
+                        android:id="@+id/_0"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -326,8 +340,8 @@
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
-                    <!-- Button 6 -->
                     <Button
+                        android:id="@+id/dot"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -337,8 +351,8 @@
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
-                    <!-- Button 7 -->
                     <Button
+                        android:id="@+id/plus"
                         style="@style/Widget.Material3.Button.TonalButton"
                         android:layout_width="0dp"
                         android:layout_height="72dp"
@@ -352,8 +366,8 @@
 
             </LinearLayout>
 
-            <!-- Absolute positioning for the large button -->
             <Button
+                android:id="@+id/equal"
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="72dp"
                 android:layout_height="162dp"

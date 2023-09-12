@@ -32,13 +32,14 @@ class MainActivity : AppCompatActivity() {
             R.id.deleteSymbol,
             R.id.clear,
             R.id.clearEntry,
-            R.id.changeSymbol
+            R.id.changeSymbol,
+            R.id.equal
         )
 
         for (buttonId in buttonIds) {
             val button = findViewById<Button>(buttonId)
             button.setOnClickListener {
-                Display.handleButtonClick(button, calculatorDisplay)
+                calculatorDisplay.text = Display.handleButtonClick(button, calculatorDisplay)
             }
         }
     }

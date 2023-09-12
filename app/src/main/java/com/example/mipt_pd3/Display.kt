@@ -7,14 +7,29 @@ object Display {
     private var currentExpression = "0"
 
     fun handleButtonClick(button: Button): String {
-        val buttonText = button.text.toString()
 
-        currentExpression = when (buttonText) {
-            "C", "CE" -> "0"
-            "changeSymbol" -> Calculate.changeSymbol(currentExpression)
-            "equal" -> Calculate.calculate(currentExpression)
-            else -> currentExpression + buttonText
+        when (button.id) {
+            R.id.clear, R.id.clearEntry -> currentExpression = ""
+            R.id.changeSymbol -> currentExpression = Calculate.changeSymbol(currentExpression)
+            //R.id.equal -> currentExpression = Calculate.calculate(currentExpression)
+            R.id.deleteSymbol -> {
+                currentExpression = if (currentExpression.length > 1) {
+                    currentExpression.substring(0, currentExpression.length - 1)
+                } else {
+                    "0"
+                }
+            }
+
+            else -> {
+                if (currentExpression == "0") {
+                    currentExpression = button.text.toString()
+                } else {
+                    currentExpression += button.text.toString()
+                }
+            }
+
         }
+
 
         return currentExpression
     }

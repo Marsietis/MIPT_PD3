@@ -17,7 +17,8 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="93dp"
-            android:text="TextView" />
+            android:text="@string/_0"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -87,7 +88,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/mc"
+                android:text="@string/back"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -97,7 +98,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/mr"
+                android:text="@string/ce"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -107,7 +108,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/ms"
+                android:text="@string/c"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -117,7 +118,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/m_plus"
+                android:text="@string/plusminus"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -127,64 +128,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/m_minus"
-                android:textColor="@color/black"
-                app:cornerRadius="5dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="0dp"
-                android:layout_height="72dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="@string/mc"
-                android:textColor="@color/black"
-                app:cornerRadius="5dp" />
-
-            <Button
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="0dp"
-                android:layout_height="72dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="@string/mr"
-                android:textColor="@color/black"
-                app:cornerRadius="5dp" />
-
-            <Button
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="0dp"
-                android:layout_height="72dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="@string/ms"
-                android:textColor="@color/black"
-                app:cornerRadius="5dp" />
-
-            <Button
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="0dp"
-                android:layout_height="72dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="@string/m_plus"
-                android:textColor="@color/black"
-                app:cornerRadius="5dp" />
-
-            <Button
-                style="@style/Widget.Material3.Button.TonalButton"
-                android:layout_width="0dp"
-                android:layout_height="72dp"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:text="@string/m_minus"
+                android:text="@string/root"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -201,7 +145,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/mc"
+                android:text="@string/_7"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -211,7 +155,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/mr"
+                android:text="@string/_8"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -221,7 +165,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/ms"
+                android:text="@string/_9"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -231,7 +175,7 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/m_plus"
+                android:text="@string/divide"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -241,7 +185,64 @@
                 android:layout_height="72dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:text="@string/m_minus"
+                android:text="@string/percent"
+                android:textColor="@color/black"
+                app:cornerRadius="5dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/_4"
+                android:textColor="@color/black"
+                app:cornerRadius="5dp" />
+
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/_5"
+                android:textColor="@color/black"
+                app:cornerRadius="5dp" />
+
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/_6"
+                android:textColor="@color/black"
+                app:cornerRadius="5dp" />
+
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/multiply"
+                android:textColor="@color/black"
+                app:cornerRadius="5dp" />
+
+            <Button
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="0dp"
+                android:layout_height="72dp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="@string/_1_x"
                 android:textColor="@color/black"
                 app:cornerRadius="5dp" />
 
@@ -269,7 +270,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="@string/mc"
+                        android:text="@string/_1"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -280,7 +281,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="@string/mr"
+                        android:text="@string/_2"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -291,7 +292,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="@string/ms"
+                        android:text="@string/_3"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -302,7 +303,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="@string/m_plus"
+                        android:text="@string/minus"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -321,7 +322,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="2"
-                        android:text="@string/mc"
+                        android:text="@string/_0"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -332,7 +333,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="@string/mr"
+                        android:text="@string/dot"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -343,7 +344,7 @@
                         android:layout_height="72dp"
                         android:layout_margin="5dp"
                         android:layout_weight="1"
-                        android:text="@string/ms"
+                        android:text="@string/plus"
                         android:textColor="@color/black"
                         app:cornerRadius="5dp" />
 
@@ -357,7 +358,7 @@
                 android:layout_width="72dp"
                 android:layout_height="162dp"
                 android:layout_gravity="top|center_horizontal"
-                android:text="Large Button"
+                android:text="@string/equal"
                 android:textColor="@color/black"
                 android:translationX="165dp"
                 app:cornerRadius="5dp" />

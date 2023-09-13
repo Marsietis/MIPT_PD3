@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         for (buttonId in buttonIds) {
             val button = findViewById<Button>(buttonId)
             button.setOnClickListener {
-                calculatorDisplay.text = Display.handleButtonClick(button)
+                Display.handleButtonClick(button, calculatorDisplay)
             }
         }
     }

@@ -1,36 +1,80 @@
 package com.example.mipt_pd3
 
 import android.widget.Button
+import android.widget.TextView
 
 object Display {
 
     private var currentExpression = "0"
+    private var inputtedNumber = ""
 
-    fun handleButtonClick(button: Button): String {
+    fun handleButtonClick(button: Button, calculatorDisplay: TextView) {
 
         when (button.id) {
-            R.id.clear, R.id.clearEntry -> currentExpression = ""
-            R.id.changeSymbol -> currentExpression = Calculate.changeSymbol(currentExpression)
-            //R.id.equal -> currentExpression = Calculate.calculate(currentExpression)
+            R.id.clear -> {
+                currentExpression = "0"
+                inputtedNumber = ""
+                showCurrentExpression(calculatorDisplay)
+            }
+
+            R.id.clearEntry -> {
+                inputtedNumber = ""
+                showInputtedNumber(calculatorDisplay)
+            }
+
+            R.id.changeSymbol -> {
+                inputtedNumber = Calculate.changeSymbol(inputtedNumber)
+                showInputtedNumber(calculatorDisplay)
+            }
+
+            R.id.plus -> {
+                currentExpression = Calculate.plus(currentExpression, inputtedNumber)
+                showCurrentExpression(calculatorDisplay)
+            }
+
+            R.id.minus -> {
+                currentExpression = Calculate.minus(currentExpression, inputtedNumber)
+                showCurrentExpression(calculatorDisplay)
+            }
+
+            R.id.multiply -> {
+                currentExpression = Calculate.multiply(currentExpression, inputtedNumber)
+                showCurrentExpression(calculatorDisplay)
+            }
+
+            R.id.divide -> {
+                currentExpression = Calculate.divide(currentExpression, inputtedNumber)
+                showCurrentExpression(calculatorDisplay)
+            }
+
+            R.id.squareRoot -> {
+                currentExpression = Calculate.squareRoot(currentExpression)
+                showCurrentExpression(calculatorDisplay)
+            }
+
+
             R.id.deleteSymbol -> {
-                currentExpression = if (currentExpression.length > 1) {
-                    currentExpression.substring(0, currentExpression.length - 1)
+                inputtedNumber = if (inputtedNumber.length > 1) {
+                    inputtedNumber.substring(0, inputtedNumber.length - 1)
                 } else {
                     "0"
                 }
+                showInputtedNumber(calculatorDisplay)
             }
 
             else -> {
-                if (currentExpression == "0") {
-                    currentExpression = button.text.toString()
-                } else {
-                    currentExpression += button.text.toString()
-                }
+                inputtedNumber += button.text.toString()
+                showInputtedNumber(calculatorDisplay)
             }
-
         }
+    }
 
+    private fun showCurrentExpression(calculatorDisplay: TextView) {
+        calculatorDisplay.text = currentExpression
+        inputtedNumber = ""
+    }
 
-        return currentExpression
+    private fun showInputtedNumber(calculatorDisplay: TextView) {
+        calculatorDisplay.text = inputtedNumber
     }
 }

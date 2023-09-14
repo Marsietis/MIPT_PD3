@@ -7,19 +7,23 @@ object Display {
 
     private var currentExpression = "0"
     private var inputtedNumber = ""
+    private var symbolPressed = false
+    private var pendingSymbol: Char? = null
 
     fun handleButtonClick(button: Button, calculatorDisplay: TextView) {
 
         when (button.id) {
             R.id.clear -> {
-                currentExpression = "0"
-                inputtedNumber = ""
-                showCurrentExpression(calculatorDisplay)
+                inputtedNumber = "0"
+                symbolPressed = false
+                showInputtedNumber(calculatorDisplay)
             }
 
             R.id.clearEntry -> {
+                currentExpression = "0"
                 inputtedNumber = ""
-                showInputtedNumber(calculatorDisplay)
+                symbolPressed = false
+                showCurrentExpression(calculatorDisplay)
             }
 
             R.id.changeSymbol -> {
@@ -27,51 +31,78 @@ object Display {
                 showInputtedNumber(calculatorDisplay)
             }
 
-            R.id.plus -> {
-                currentExpression = Calculate.plus(currentExpression, inputtedNumber)
-                showCurrentExpression(calculatorDisplay)
-            }
-
-            R.id.minus -> {
-                currentExpression = Calculate.minus(currentExpression, inputtedNumber)
-                showCurrentExpression(calculatorDisplay)
-            }
-
-            R.id.multiply -> {
-                currentExpression = Calculate.multiply(currentExpression, inputtedNumber)
-                showCurrentExpression(calculatorDisplay)
-            }
-
-            R.id.divide -> {
-                currentExpression = Calculate.divide(currentExpression, inputtedNumber)
-                showCurrentExpression(calculatorDisplay)
+            R.id.plus, R.id.minus, R.id.multiply, R.id.divide -> {
+                if (symbolPressed) {
+                    pendingSymbol = button.text.toString().first()
+                } else {
+                    currentExpression = if (pendingSymbol != null) {
+                        Calculate.calculateExpression(
+                            currentExpression,
+                            inputtedNumber,
+                            pendingSymbol!!
+                        )
+                    } else {
+                        inputtedNumber
+                    }
+                    pendingSymbol = button.text.toString().first()
+                    inputtedNumber = ""
+                    symbolPressed = true
+                    showCurrentExpression(calculatorDisplay)
+                }
             }
 
             R.id.squareRoot -> {
-                currentExpression = Calculate.squareRoot(currentExpression)
-                showCurrentExpression(calculatorDisplay)
+                inputtedNumber = Calculate.squareRoot(inputtedNumber)
+                showInputtedNumber(calculatorDisplay)
             }
 
-
             R.id.deleteSymbol -> {
-                inputtedNumber = if (inputtedNumber.length > 1) {
-                    inputtedNumber.substring(0, inputtedNumber.length - 1)
-                } else {
-                    "0"
+                if (inputtedNumber.isNotEmpty()) {
+                    inputtedNumber = inputtedNumber.substring(0, inputtedNumber.length - 1)
+                    showInputtedNumber(calculatorDisplay)
+                } else if (pendingSymbol != null) {
+                    pendingSymbol = null
+                    symbolPressed = false
                 }
-                showInputtedNumber(calculatorDisplay)
+            }
+
+            R.id.equal -> {
+                if (symbolPressed && inputtedNumber.isNotEmpty() && pendingSymbol != null) {
+                    currentExpression = Calculate.calculateExpression(
+                        currentExpression,
+                        inputtedNumber,
+                        pendingSymbol!!
+                    )
+                    inputtedNumber = ""
+                    symbolPressed = false
+                    pendingSymbol = null
+                    currentExpression = trimNumbers(currentExpression)
+                    showCurrentExpression(calculatorDisplay)
+                }
             }
 
             else -> {
                 inputtedNumber += button.text.toString()
+                inputtedNumber = trimNumbers(inputtedNumber)
                 showInputtedNumber(calculatorDisplay)
             }
         }
     }
 
+    private fun trimNumbers(input: String): String {
+        // Trim numbers starting with 0 and ending with .0
+        var trimmedInput = input
+        if (input.startsWith("0")) {
+            trimmedInput = input.substring(1)
+        }
+        if (input.endsWith(".0")) {
+            trimmedInput = input.substring(0, input.length - 2)
+        }
+        return trimmedInput
+    }
+
     private fun showCurrentExpression(calculatorDisplay: TextView) {
         calculatorDisplay.text = currentExpression
-        inputtedNumber = ""
     }
 
     private fun showInputtedNumber(calculatorDisplay: TextView) {

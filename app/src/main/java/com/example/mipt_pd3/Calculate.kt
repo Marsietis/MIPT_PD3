@@ -13,13 +13,10 @@ object Calculate {
         } else {
             "-$inputtedNumber"
         }
-
     }
 
     fun calculateExpression(
-        currentExpression: String,
-        inputtedNumber: String,
-        pendingSymbol: Char
+        currentExpression: String, inputtedNumber: String, pendingSymbol: Char
     ): String {
         return when (pendingSymbol) {
             '+' -> plus(currentExpression, inputtedNumber)
@@ -31,27 +28,20 @@ object Calculate {
     }
 
     private fun plus(currentExpression: String, inputtedNumber: String): String {
-        val result = currentExpression.toDouble() + inputtedNumber.toDouble()
-        return result.toString()
+        return (currentExpression.toDouble() + inputtedNumber.toDouble()).toString()
     }
 
     private fun minus(currentExpression: String, inputtedNumber: String): String {
-        val result = currentExpression.toDouble() - inputtedNumber.toDouble()
-        return result.toString()
+        return (currentExpression.toDouble() - inputtedNumber.toDouble()).toString()
     }
 
     private fun multiply(currentExpression: String, inputtedNumber: String): String {
-        val result = currentExpression.toDouble() * inputtedNumber.toDouble()
-        return result.toString()
+        return (currentExpression.toDouble() * inputtedNumber.toDouble()).toString()
     }
 
     private fun divide(currentExpression: String, inputtedNumber: String): String {
-        val numerator = currentExpression.toDouble()
-        val denominator = inputtedNumber.toDouble()
-
-        return if (denominator != 0.0) {
-            val result = numerator / denominator
-            result.toString()
+        return if (inputtedNumber.toDouble() != 0.0) {
+            (currentExpression.toDouble() / inputtedNumber.toDouble()).toString()
         } else {
             "Error"
         }
@@ -59,8 +49,7 @@ object Calculate {
 
     fun squareRoot(inputtedNumber: String): String {
         return if (!inputtedNumber.startsWith("-")) {
-            val result = sqrt(inputtedNumber.toDouble())
-            result.toString()
+            sqrt(inputtedNumber.toDouble()).toString()
         } else {
             "Error"
         }

@@ -47,6 +47,7 @@ object Display {
                     pendingSymbol = button.text.toString().first()
                     inputtedNumber = ""
                     symbolPressed = true
+                    inputtedNumber = trimNumbers(inputtedNumber)
                     showCurrentExpression(calculatorDisplay)
                 }
             }
@@ -97,10 +98,11 @@ object Display {
     }
 
     private fun trimNumbers(input: String): String {
-        // Trim numbers starting with 0 and ending with .0
         var trimmedInput = input
         if (input.startsWith("0")) {
-            trimmedInput = input.substring(1)
+            if (!input.startsWith("0.")) {
+                trimmedInput = input.substring(1)
+            }
         }
         if (input.endsWith(".0")) {
             trimmedInput = input.substring(0, input.length - 2)
@@ -108,7 +110,10 @@ object Display {
         if (input == "") {
             trimmedInput = "0"
         }
-        if (input == "-"){
+        if (input == "-") {
+            trimmedInput = "0"
+        }
+        if (input == "0."){
             trimmedInput = "0"
         }
         return trimmedInput

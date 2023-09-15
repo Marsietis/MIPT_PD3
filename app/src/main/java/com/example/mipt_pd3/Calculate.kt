@@ -45,16 +45,15 @@ object Calculate {
         return result.toString()
     }
 
-    //todo: fix
     private fun divide(currentExpression: String, inputtedNumber: String): String {
         val numerator = currentExpression.toDouble()
         val denominator = inputtedNumber.toDouble()
 
-        return if (denominator == 0.0) {
-            "Error"
-        } else {
+        return if (denominator != 0.0) {
             val result = numerator / denominator
             result.toString()
+        } else {
+            "Error"
         }
     }
 

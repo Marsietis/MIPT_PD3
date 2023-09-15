@@ -27,35 +27,41 @@ object Display {
             }
 
             R.id.changeSymbol -> {
-                inputtedNumber = Calculate.changeSymbol(inputtedNumber)
-                showInputtedNumber(calculatorDisplay)
+                if (inputtedNumber != "Error") {
+                    inputtedNumber = Calculate.changeSymbol(inputtedNumber)
+                    showInputtedNumber(calculatorDisplay)
+                }
             }
 
             R.id.plus, R.id.minus, R.id.multiply, R.id.divide -> {
-                if (symbolPressed) {
-                    pendingSymbol = button.text.toString().first()
-                } else {
-                    currentExpression = if (pendingSymbol != null) {
-                        Calculate.calculateExpression(
-                            currentExpression,
-                            inputtedNumber,
-                            pendingSymbol!!
-                        )
+                if (inputtedNumber != "Error") {
+                    if (symbolPressed) {
+                        pendingSymbol = button.text.toString().first()
                     } else {
-                        inputtedNumber
+                        currentExpression = if (pendingSymbol != null) {
+                            Calculate.calculateExpression(
+                                currentExpression,
+                                inputtedNumber,
+                                pendingSymbol!!
+                            )
+                        } else {
+                            inputtedNumber
+                        }
+                        pendingSymbol = button.text.toString().first()
+                        inputtedNumber = ""
+                        symbolPressed = true
+                        inputtedNumber = trimNumbers(inputtedNumber)
+                        showCurrentExpression(calculatorDisplay)
                     }
-                    pendingSymbol = button.text.toString().first()
-                    inputtedNumber = ""
-                    symbolPressed = true
-                    inputtedNumber = trimNumbers(inputtedNumber)
-                    showCurrentExpression(calculatorDisplay)
                 }
             }
 
             R.id.squareRoot -> {
-                inputtedNumber = Calculate.squareRoot(inputtedNumber)
-                inputtedNumber = trimNumbers(inputtedNumber)
-                showInputtedNumber(calculatorDisplay)
+                if (inputtedNumber != "Error") {
+                    inputtedNumber = Calculate.squareRoot(inputtedNumber)
+                    inputtedNumber = trimNumbers(inputtedNumber)
+                    showInputtedNumber(calculatorDisplay)
+                }
             }
 
             R.id.deleteSymbol -> {
@@ -74,31 +80,36 @@ object Display {
             }
 
             R.id.equal -> {
-                if (symbolPressed && inputtedNumber.isNotEmpty() && pendingSymbol != null) {
-                    currentExpression = Calculate.calculateExpression(
-                        currentExpression,
-                        inputtedNumber,
-                        pendingSymbol!!
-                    )
-                    inputtedNumber = ""
-                    symbolPressed = false
-                    pendingSymbol = null
-                    currentExpression = trimNumbers(currentExpression)
-                    inputtedNumber = currentExpression
-                    showCurrentExpression(calculatorDisplay)
+                if (inputtedNumber != "Error") {
+                    if (symbolPressed && inputtedNumber.isNotEmpty() && pendingSymbol != null) {
+                        currentExpression = Calculate.calculateExpression(
+                            currentExpression,
+                            inputtedNumber,
+                            pendingSymbol!!
+                        )
+                        inputtedNumber = ""
+                        symbolPressed = false
+                        pendingSymbol = null
+                        currentExpression = trimNumbers(currentExpression)
+                        inputtedNumber = currentExpression
+                        showCurrentExpression(calculatorDisplay)
+                    }
                 }
             }
 
             else -> {
-                inputtedNumber += button.text.toString()
-                inputtedNumber = trimNumbers(inputtedNumber)
-                showInputtedNumber(calculatorDisplay)
+                if (inputtedNumber != "Error") {
+                    inputtedNumber += button.text.toString()
+                    inputtedNumber = trimNumbers(inputtedNumber)
+                    showInputtedNumber(calculatorDisplay)
+                }
             }
         }
     }
 
     private fun trimNumbers(input: String): String {
         var trimmedInput = input
+
         if (input.startsWith("0")) {
             if (!input.startsWith("0.")) {
                 trimmedInput = input.substring(1)
@@ -107,13 +118,10 @@ object Display {
         if (input.endsWith(".0")) {
             trimmedInput = input.substring(0, input.length - 2)
         }
-        if (input == "") {
-            trimmedInput = "0"
+        if (input.endsWith(".")) {
+            trimmedInput = input.substring(0, input.length - 1)
         }
-        if (input == "-") {
-            trimmedInput = "0"
-        }
-        if (input == "0."){
+        if (input == "" || input == "-" || input == "0.") {
             trimmedInput = "0"
         }
         return trimmedInput

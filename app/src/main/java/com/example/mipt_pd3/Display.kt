@@ -53,11 +53,16 @@ object Display {
 
             R.id.squareRoot -> {
                 inputtedNumber = Calculate.squareRoot(inputtedNumber)
+                inputtedNumber = trimNumbers(inputtedNumber)
                 showInputtedNumber(calculatorDisplay)
             }
 
             R.id.deleteSymbol -> {
-                if (inputtedNumber.isNotEmpty()) {
+                if (inputtedNumber == "Error") {
+                    inputtedNumber = ""
+                    inputtedNumber = trimNumbers(inputtedNumber)
+                    showInputtedNumber(calculatorDisplay)
+                } else if (inputtedNumber.isNotEmpty()) {
                     inputtedNumber = inputtedNumber.substring(0, inputtedNumber.length - 1)
                     inputtedNumber = trimNumbers(inputtedNumber)
                     showInputtedNumber(calculatorDisplay)

@@ -3,6 +3,8 @@ package com.example.mipt_pd3
 import kotlin.math.sqrt
 
 object Calculate {
+
+    //todo ad a check if number is empty
     fun changeSymbol(inputtedNumber: String): String {
         if (inputtedNumber == "0" || inputtedNumber == "") {
             return inputtedNumber
@@ -44,27 +46,24 @@ object Calculate {
         return result.toString()
     }
 
+    //todo: fix
     private fun divide(currentExpression: String, inputtedNumber: String): String {
-        try {
-            val numerator = currentExpression.toDouble()
-            val denominator = inputtedNumber.toDouble()
+        val numerator = currentExpression.toDouble()
+        val denominator = inputtedNumber.toDouble()
 
-            if (denominator == 0.0) {
-                return "Error"
-            }
-
+        return if (denominator == 0.0) {
+            "Error"
+        } else {
             val result = numerator / denominator
-            return result.toString()
-        } catch (e: NumberFormatException) {
-            return "Error"
+            result.toString()
         }
     }
 
     fun squareRoot(inputtedNumber: String): String {
-        return try {
+        return if (!inputtedNumber.startsWith("-")) {
             val result = sqrt(inputtedNumber.toDouble())
             result.toString()
-        } catch (e: NumberFormatException) {
+        } else {
             "Error"
         }
     }

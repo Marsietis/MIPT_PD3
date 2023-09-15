@@ -108,6 +108,9 @@ object Display {
         if (input == "") {
             trimmedInput = "0"
         }
+        if (input == "-"){
+            trimmedInput = "0"
+        }
         return trimmedInput
     }
 

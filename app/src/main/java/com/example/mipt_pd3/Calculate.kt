@@ -4,7 +4,6 @@ import kotlin.math.sqrt
 
 object Calculate {
 
-    //todo ad a check if number is empty
     fun changeSymbol(inputtedNumber: String): String {
         if (inputtedNumber == "0" || inputtedNumber == "") {
             return inputtedNumber

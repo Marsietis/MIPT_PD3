@@ -77,6 +77,7 @@ object Display {
                     symbolPressed = false
                     pendingSymbol = null
                     currentExpression = trimNumbers(currentExpression)
+                    inputtedNumber = currentExpression
                     showCurrentExpression(calculatorDisplay)
                 }
             }

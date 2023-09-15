@@ -59,6 +59,7 @@ object Display {
             R.id.deleteSymbol -> {
                 if (inputtedNumber.isNotEmpty()) {
                     inputtedNumber = inputtedNumber.substring(0, inputtedNumber.length - 1)
+                    inputtedNumber = trimNumbers(inputtedNumber)
                     showInputtedNumber(calculatorDisplay)
                 } else if (pendingSymbol != null) {
                     pendingSymbol = null
@@ -98,6 +99,9 @@ object Display {
         }
         if (input.endsWith(".0")) {
             trimmedInput = input.substring(0, input.length - 2)
+        }
+        if (input == "") {
+            trimmedInput = "0"
         }
         return trimmedInput
     }

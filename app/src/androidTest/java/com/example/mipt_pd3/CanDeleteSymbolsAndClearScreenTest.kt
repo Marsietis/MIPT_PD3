@@ -26,14 +26,14 @@ import org.junit.runner.RunWith
 
 @LargeTest
 @RunWith(AndroidJUnit4::class)
-class DisplayTest {
+class CanDeleteSymbolsAndClearScreenTest {
 
     @Rule
     @JvmField
     var mActivityScenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
-    fun displayTest() {
+    fun canDeleteSymbolsAndClearScreenTest() {
         // Added a sleep statement to match the app's execution delay.
         // The recommended way to handle such scenarios is to use Espresso idling resources:
         // https://google.github.io/android-testing-support-library/docs/espresso/idling-resource/index.html
@@ -108,15 +108,6 @@ class DisplayTest {
         )
         textView.check(matches(withText("45")))
 
-        val textView2 = onView(
-            allOf(
-                withId(R.id.display), withText("45"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
-                isDisplayed()
-            )
-        )
-        textView2.check(matches(withText("45")))
-
         val materialButton5 = onView(
             allOf(
                 withId(R.id.clearEntry), withText("CE"),
@@ -132,14 +123,14 @@ class DisplayTest {
         )
         materialButton5.perform(click())
 
-        val textView3 = onView(
+        val textView2 = onView(
             allOf(
                 withId(R.id.display), withText("0"),
                 withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
                 isDisplayed()
             )
         )
-        textView3.check(matches(withText("0")))
+        textView2.check(matches(withText("0")))
 
         val materialButton6 = onView(
             allOf(
@@ -158,27 +149,18 @@ class DisplayTest {
 
         val materialButton7 = onView(
             allOf(
-                withId(R.id.changeSymbol), withText("+-"),
+                withId(R.id._5), withText("5"),
                 childAtPosition(
                     childAtPosition(
                         withClassName(`is`("android.widget.LinearLayout")),
-                        2
+                        4
                     ),
-                    3
+                    1
                 ),
                 isDisplayed()
             )
         )
         materialButton7.perform(click())
-
-        val textView4 = onView(
-            allOf(
-                withId(R.id.display), withText("-5"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
-                isDisplayed()
-            )
-        )
-        textView4.check(matches(withText("-5")))
 
         val materialButton8 = onView(
             allOf(
@@ -195,191 +177,14 @@ class DisplayTest {
         )
         materialButton8.perform(click())
 
-        val textView5 = onView(
+        val textView3 = onView(
             allOf(
                 withId(R.id.display), withText("0"),
                 withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
                 isDisplayed()
             )
         )
-        textView5.check(matches(withText("0")))
-
-        val materialButton9 = onView(
-            allOf(
-                withId(R.id._2), withText("2"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        0
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton9.perform(click())
-
-        val materialButton10 = onView(
-            allOf(
-                withId(R.id._5), withText("5"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        4
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton10.perform(click())
-
-        val materialButton11 = onView(
-            allOf(
-                withId(R.id.squareRoot), withText("√"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        2
-                    ),
-                    4
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton11.perform(click())
-
-        val materialButton12 = onView(
-            allOf(
-                withId(R.id.equal), withText("="),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        5
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton12.perform(click())
-
-        val textView6 = onView(
-            allOf(
-                withId(R.id.display), withText("5"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
-                isDisplayed()
-            )
-        )
-        textView6.check(matches(withText("5")))
-
-        val materialButton13 = onView(
-            allOf(
-                withId(R.id.multiply), withText("*"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        4
-                    ),
-                    3
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton13.perform(click())
-
-        val materialButton14 = onView(
-            allOf(
-                withId(R.id._3), withText("3"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        0
-                    ),
-                    2
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton14.perform(click())
-
-        val materialButton15 = onView(
-            allOf(
-                withId(R.id.equal), withText("="),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        5
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton15.perform(click())
-
-        val textView7 = onView(
-            allOf(
-                withId(R.id.display), withText("15"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
-                isDisplayed()
-            )
-        )
-        textView7.check(matches(withText("15")))
-
-        val materialButton16 = onView(
-            allOf(
-                withId(R.id.divide), withText("/"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        3
-                    ),
-                    3
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton16.perform(click())
-
-        val materialButton17 = onView(
-            allOf(
-                withId(R.id._0), withText("0"),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        1
-                    ),
-                    0
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton17.perform(click())
-
-        val materialButton18 = onView(
-            allOf(
-                withId(R.id.equal), withText("="),
-                childAtPosition(
-                    childAtPosition(
-                        withClassName(`is`("android.widget.LinearLayout")),
-                        5
-                    ),
-                    1
-                ),
-                isDisplayed()
-            )
-        )
-        materialButton18.perform(click())
-
-        val textView8 = onView(
-            allOf(
-                withId(R.id.display), withText("Error"),
-                withParent(withParent(IsInstanceOf.instanceOf(android.view.ViewGroup::class.java))),
-                isDisplayed()
-            )
-        )
-        textView8.check(matches(withText("Error")))
+        textView3.check(matches(withText("0")))
     }
 
     private fun childAtPosition(
